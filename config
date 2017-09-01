@@ -152,15 +152,15 @@ bindsym XF86AudioLowerVolume exec "amixer -q sset Master 3%-"
 bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
 # Remove border / titlebar
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 3
 new_window 1pixel
 
 # Set the window gaps
-gaps inner 2
+gaps inner 20
 smart_gaps on
 
 # Set background color and auto start compton
-exec --no-startup-id hsetroot -solid "#073642"
+exec --no-startup-id hsetroot -solid "#4C566A"
 exec --no-startup-id compton
 
 # Border colors

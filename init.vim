@@ -25,8 +25,6 @@ if dein#load_state('/home/natskyge/.config/nvim/dein')
   call dein#add('junegunn/rainbow_parentheses.vim')
   call dein#add('kovisoft/slimv')
   call dein#add('vim-syntastic/syntastic')
-  call dein#add('altercation/vim-colors-solarized')
-
 
   " You can specify revision/branch/tag.
 
@@ -150,7 +148,6 @@ set t_Co=256
 set background=dark
 hi Normal ctermbg=none
 hi LineNr ctermfg=8
-colorscheme solarized
 
 "End colorscheme--------------------------
 
