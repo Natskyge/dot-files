@@ -147,20 +147,20 @@ bar {
 }
 
 # Bind audio controls using amixer
-bindsym XF86AudioRaiseVolume exec "amixer -q sset Master 5%+"
-bindsym XF86AudioLowerVolume exec "amixer -q sset Master 5%-"
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master 3%+"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master 3%-"
 bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
 # Remove border / titlebar
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 0
 new_window 1pixel
 
 # Set the window gaps
-gaps inner 20
+gaps inner 2
 smart_gaps on
 
 # Set background color and auto start compton
-exec --no-startup-id hsetroot -solid "#4C566A"
+exec --no-startup-id hsetroot -solid "#073642"
 exec --no-startup-id compton
 
 # Border colors
