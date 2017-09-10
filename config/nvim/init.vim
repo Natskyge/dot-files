@@ -19,12 +19,16 @@ if dein#load_state('/home/natskyge/.config/nvim/dein')
   call dein#add('raimondi/delimitmate')
   call dein#add('scrooloose/nerdtree')
   call dein#add('tpope/vim-sensible')
-  call dein#add('bling/vim-bufferline')
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 }) 
   call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
   call dein#add('junegunn/rainbow_parentheses.vim')
-  call dein#add('kovisoft/slimv')
   call dein#add('vim-syntastic/syntastic')
+  call dein#add('NLKNguyen/c-syntax.vim')
+  call dein#add('ap/vim-buftabline')
+  call dein#add('justinmk/vim-sneak')
+  call dein#add('terryma/vim-multiple-cursors')
+  call dein#add('vim-scripts/paredit.vim')
+  call dein#add('mhinz/vim-startify')
 
   " You can specify revision/branch/tag.
 
@@ -76,6 +80,19 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+"Delimitmate
+au FileType c let b:delimitMate_expand_cr = 1
+au FileType scheme,lisp,clojure let b:loaded_delimitMate = 0
+
+"Vim sneak
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
+
+"Startify
+let g:startify_custom_header = 
+    \ startify#fortune#cowsay('═','║','╔','╗','╝','╚')
+
+
 "End plugin setup-------------------------
 
 
@@ -87,21 +104,23 @@ let mapleader=" "
 
 " Buffers, use <leader>b + key too:
   "n - Switch to the next buffer
-  nnoremap <leader>bn :bnext!<CR>
+  nnoremap <leader>bn :bnext<CR>
   "p - Switch to the previouse buffer
-  nnoremap <leader>bp :bprev!<CR>
-  "d - Kill current buffer
-  nnoremap <leader>bd :bd!<CR>
+  nnoremap <leader>bp :bprev<CR>
+  "d - soft kill current buffer
+  nnoremap <leader>bd :bd<CR>
+  "D - kill current buffer
+  nnoremap <leader>bD :bd!<CR>
 
 " Windows, use <leader>w + key too:
   set splitbelow
   set splitright
   "v - Opens a veritcal split on the right
-  nnoremap <leader>wv :vsp!<cr>
+  nnoremap <leader>wv :vsp<cr>
   "s - Opens a horizontal split below
-  nnoremap <leader>ws :split!<cr>
+  nnoremap <leader>ws :split<cr>
   "d - Close split
-  nnoremap <leader>wd :close!<cr>
+  nnoremap <leader>wd :close<cr>
   "h/j/k/l - Navigate among windows
   nnoremap <leader>wk :wincmd k<CR>
   nnoremap <leader>wj :wincmd j<CR>
@@ -114,49 +133,68 @@ let mapleader=" "
   "h - Opens a buffer to search for files in the home directory.
   nnoremap <leader>fh :FZF ~/<cr>
   "s - Save the current file
-  nnoremap <leader>fs :w!<CR>
+  nnoremap <leader>fs :w<CR>
   "x - Save the current file and quit
-  nnoremap <leader>fx :x!<CR>
+  nnoremap <leader>fx :x<CR>
   "n - Create new file
-  nnoremap <leader>fn :e! 
+  nnoremap <leader>fn :e 
   "t - Open tree file browser
   nnoremap <leader>ft :NERDTreeToggle<CR>
 
 " The init.vim file
   "<leader> f e d - Open your init.vim
-  nnoremap <leader>fed :e! ~/.config/nvim/init.vim<cr>
+  nnoremap <leader>fed :e ~/.config/nvim/init.vim<cr>
 
-" Quit with <leader> q
-  nnoremap <leader>q :q!<CR>
+" Quit with <leader> q + key
+  " Soft quit
+  nnoremap <leader>qq :q<CR>
+  " Hard quit
+  nnoremap <leader>qQ :q!<CR>
 
 " Open command line with <leader><leader>
   nnoremap <leader><leader> :
 
 " Use <leader> l + letter to turn grammar checking on
   "d - Turn on danish grammar checking
-  nnoremap <leader>ld :set spell spelllang=da<CR>
+  nnoremap <leader>lda :set spell spelllang=da<CR>
   "e - Turn on english grammar checking
-  nnoremap <leader>le :set spell spelllang=en_us<CR>
+  nnoremap <leader>len :set spell spelllang=en_us<CR>
   "n - Turn of grammar checking
-  nnoremap <leader>ln :set spell spelllang=""<CR>
+  nnoremap <leader>lno :set spell spelllang=""<CR>
 
 "End keybindings--------------------------
 
 
 "Colorscheme------------------------------
-"
+
 set t_Co=256
 set background=dark
+colorscheme solarized
 hi Normal ctermbg=none
-hi LineNr ctermfg=8
+hi LineNr ctermbg=8
+
+" Clean and green
+hi BufTabLineCurrent ctermbg=0 ctermfg=6
+hi BufTabLineActive  ctermbg=0 ctermfg=15
+hi BufTabLineHidden  ctermbg=0 ctermfg=15
+hi BufTabLineFill    ctermbg=0 ctermfg=0
+
+" Solarized
+"hi BufTabLineCurrent ctermbg=8 ctermfg=4
+"hi BufTabLineActive  ctermbg=8 ctermfg=12
+"hi BufTabLineHidden  ctermbg=8 ctermfg=12
+"hi BufTabLineFill    ctermbg=8 ctermfg=8
 
 "End colorscheme--------------------------
 
 
 "Misc-------------------------------------
-"
-"Set number line
+
+"Set number linee
 set nu
+
+set textwidth=80
+2mat ErrorMsg '\%81v.'
 
 "Status bar setup
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
@@ -173,6 +211,8 @@ set encoding=utf-8
   "On pressing tab, insert 4 spaces
   set expandtab
 
-"End misc---------------------------------
+"No swap files
+set noswapfile
 
+"End misc---------------------------------
 
