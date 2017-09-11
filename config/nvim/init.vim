@@ -22,13 +22,14 @@ if dein#load_state('/home/natskyge/.config/nvim/dein')
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 }) 
   call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
   call dein#add('junegunn/rainbow_parentheses.vim')
-  call dein#add('vim-syntastic/syntastic')
   call dein#add('NLKNguyen/c-syntax.vim')
   call dein#add('ap/vim-buftabline')
   call dein#add('justinmk/vim-sneak')
   call dein#add('terryma/vim-multiple-cursors')
   call dein#add('vim-scripts/paredit.vim')
   call dein#add('mhinz/vim-startify')
+  call dein#add('altercation/vim-colors-solarized')
+  call dein#add('w0rp/ale')
 
   " You can specify revision/branch/tag.
 
@@ -70,16 +71,6 @@ augroup END
 "Paredit
 let g:paredit_electric_return=0
 
-"Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 "Delimitmate
 au FileType c let b:delimitMate_expand_cr = 1
 au FileType scheme,lisp,clojure let b:loaded_delimitMate = 0
@@ -104,7 +95,7 @@ let mapleader=" "
 
 " Buffers, use <leader>b + key too:
   "n - Switch to the next buffer
-  nnoremap <leader>bn :bnext<CR>
+  nnoremap <leader>bn :bnext!<CR>
   "p - Switch to the previouse buffer
   nnoremap <leader>bp :bprev<CR>
   "d - soft kill current buffer
@@ -162,6 +153,9 @@ let mapleader=" "
   "n - Turn of grammar checking
   nnoremap <leader>lno :set spell spelllang=""<CR>
 
+" Use <Esc> to exit terminal mode
+" tnoremap <Esc> <C-\><C-n>
+
 "End keybindings--------------------------
 
 
@@ -174,16 +168,16 @@ hi Normal ctermbg=none
 hi LineNr ctermbg=8
 
 " Clean and green
-hi BufTabLineCurrent ctermbg=0 ctermfg=6
-hi BufTabLineActive  ctermbg=0 ctermfg=15
-hi BufTabLineHidden  ctermbg=0 ctermfg=15
-hi BufTabLineFill    ctermbg=0 ctermfg=0
+"hi BufTabLineCurrent ctermbg=0 ctermfg=6
+"hi BufTabLineActive  ctermbg=0 ctermfg=15
+"hi BufTabLineHidden  ctermbg=0 ctermfg=15
+"hi BufTabLineFill    ctermbg=0 ctermfg=0
 
 " Solarized
-"hi BufTabLineCurrent ctermbg=8 ctermfg=4
-"hi BufTabLineActive  ctermbg=8 ctermfg=12
-"hi BufTabLineHidden  ctermbg=8 ctermfg=12
-"hi BufTabLineFill    ctermbg=8 ctermfg=8
+hi BufTabLineCurrent ctermbg=8 ctermfg=4
+hi BufTabLineActive  ctermbg=8 ctermfg=12
+hi BufTabLineHidden  ctermbg=8 ctermfg=12
+hi BufTabLineFill    ctermbg=8 ctermfg=8
 
 "End colorscheme--------------------------
 
@@ -193,6 +187,7 @@ hi BufTabLineFill    ctermbg=0 ctermfg=0
 "Set number linee
 set nu
 
+" Set width to 80 and highlight text a columne 81
 set textwidth=80
 2mat ErrorMsg '\%81v.'
 
@@ -210,9 +205,6 @@ set encoding=utf-8
   set shiftwidth=4
   "On pressing tab, insert 4 spaces
   set expandtab
-
-"No swap files
-set noswapfile
 
 "End misc---------------------------------
 
