@@ -1,4 +1,4 @@
-These are the principles on which my OS will be built
+These are the principles on which my setup will be built
 1: All programs must do one thing and do it well.
 2: All programs must be integrated, both their config and their use.
 3: Nothing unnecessary must be installed, everything must have purpose.
@@ -9,40 +9,21 @@ These are the principles on which my OS will be built
 6: Everything must be minimal and fast.
 
 The following programs are necessary for my work:
- - Text editor
- - Terminal
- - Window manager
- - System status display
- - Program launcher
- - Shell 
- - Color scheme
- - Audio player
- - Video player 
- - System info
- - Office suite
- - File browser
- - Email client
- - Browser
- - PDF reader
- - Calender
+ - Text editor           : NeoVim
+ - Terminal              : st
+ - Window manager        : dwm
+ - System status display : dwm
+ - Program launcher      : dmenu
+ - Shell                 : bash
+ - Color scheme          : solarized
+ - Audio player          : cmus
+ - Video player          : mpv
+ - System info           : ufetch
+ - Office suite          : libreoffice
+ - File browser          : ranger
+ - Email client          : neomutt
+ - Browser               : chromium
+ - PDF reader            : zathura+mupdf
+ - Calender              : calcurses
  - Several other trivialities, like unzipping tools etc.
-
-[Text editor = NeoVim] 
-[Terminal = urxvt]
-[Window manager = i3-gaps]
-[System status display = polybar]
-[Program launcher = rofi]
-[Shell = zsh]
-[Color scheme = Solarized]
-[Audio player = cmus]
-[Video player = mpv]
-[System info = ufetch]
-[Office suite = libreoffice]
-[File browser = ranger]
-[Email client = mutt]
-[Browser = firefox]
-[PDF reader = mupdf]
-[Calender = calcurses]
-
-
 
