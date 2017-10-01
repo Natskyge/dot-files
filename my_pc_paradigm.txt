@@ -9,21 +9,20 @@ These are the principles on which my setup will be built
 6: Everything must be minimal and fast.
 
 The following programs are necessary for my work:
- - Text editor           : NeoVim
- - Terminal              : st
- - Window manager        : dwm
- - System status display : dwm
- - Program launcher      : dmenu
- - Shell                 : bash
- - Color scheme          : solarized
- - Audio player          : cmus
- - Video player          : mpv
- - System info           : ufetch
- - Office suite          : libreoffice
- - File browser          : ranger
- - Email client          : neomutt
- - Browser               : chromium
- - PDF reader            : zathura+mupdf
- - Calender              : calcurses
+ - Text editor           : NeoVim, maybe consider vis
+ - Terminal              : st, "it just werks"
+ - Window manager        : dwm, maybe 2bwm or some other dwm-like thing.
+ - System status display : dwm, or polybar.
+ - Program launcher      : dmenu, or dmenu2
+ - Shell                 : bash, or rc/dash/mksh
+ - Color scheme          : solarized, pretty much settled on it.
+ - Audio player          : cmus, pretty good
+ - Video player          : mpv, werks
+ - System info           : ufetch, werks
+ - Office suite          : libreoffice, god that thing is shit.
+ - File browser          : ranger, werks
+ - Email client          : neomutt, i should really set it up.
+ - Browser               : chromium, werks
+ - PDF reader            : zathura+mupdf, werks
+ - Calender              : calcurses, not set up.
  - Several other trivialities, like unzipping tools etc.
-

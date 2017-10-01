@@ -1,11 +1,12 @@
 /* See LICENSE file for copyright and license details. */
 
+
 /*
  * appearance
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-char font[] = "Source Code Pro:pixelsize=13:antialias=true:autohint=true";
+char font[] = "Inconsolata:pixelsize=15:antialias=true:autohint=true";
 int borderpx = 2;
 
 /*
