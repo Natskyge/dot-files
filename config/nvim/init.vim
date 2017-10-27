@@ -24,12 +24,10 @@ if dein#load_state('/home/natskyge/.config/nvim/dein')
   call dein#add('justinmk/vim-sneak')
   call dein#add('terryma/vim-multiple-cursors')
   call dein#add('w0rp/ale')
-  call dein#add('itchyny/lightline.vim')
-  call dein#add('icymind/NeoSolarized')
   call dein#add('hkupty/iron.nvim')
   call dein#add('junegunn/rainbow_parentheses.vim')
   call dein#add('NLKNguyen/c-syntax.vim')
-  call dein#add('joshdick/onedark.vim')
+  call dein#add('chriskempson/base16-vim')
 
   " Required:
   call dein#end()
@@ -67,11 +65,6 @@ au FileType c let b:delimitMate_expand_cr = 1
 "Vim sneak
 map f <Plug>Sneak_s
 map F <Plug>Sneak_S
-
-"Lightline
-let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ }
 
 "Buftabline
 let g:buftabline_numbers=2
@@ -183,13 +176,13 @@ let mapleader=" "
 set termguicolors
 set cursorline
 set background=dark
-colorscheme NeoSolarized
+colorscheme base16-materia
 
 " Solarized
-hi BufTabLineActive  guibg=#073642 guifg=#839496
-hi BufTabLineCurrent guibg=#002b36 guifg=#839496
-hi BufTabLineHidden  guibg=#073642 guifg=#839496
-hi BufTabLineFill    guibg=#073642 guifg=#073642
+"hi BufTabLineActive  guibg=#073642 guifg=#839496
+"hi BufTabLineCurrent guibg=#002b36 guifg=#839496
+"hi BufTabLineHidden  guibg=#073642 guifg=#839496
+"hi BufTabLineFill    guibg=#073642 guifg=#073642
 
 "End colorscheme--------------------------
 
@@ -215,6 +208,5 @@ set encoding=utf-8
   "when indenting with '>', use 4 spaces width
   set shiftwidth=4
 
-				
 "End misc---------------------------------
 
