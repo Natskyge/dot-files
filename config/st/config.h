@@ -6,8 +6,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-char font[] = "Inconsolata:pixelsize=15:antialias=true:autohint=true";
-int borderpx = 2;
+char font[] = "GohuFont:pixelsize=15:antialias=false:autohint=true";
+int borderpx = 10;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -86,24 +86,39 @@ static unsigned int tabspaces = 8;
 /* Terminal colors (16 first used in escape sequence) */
 const char *colorname[] = {
 	/* solarized dark */
-	"#073642",  /*  0: black    */
-	"#dc322f",  /*  1: red      */
-	"#859900",  /*  2: green    */
-	"#b58900",  /*  3: yellow   */
-	"#268bd2",  /*  4: blue     */
-	"#d33682",  /*  5: magenta  */
-	"#2aa198",  /*  6: cyan     */
-	"#eee8d5",  /*  7: white    */
-	"#002b36",  /*  8: brblack  */
-	"#cb4b16",  /*  9: brred    */
-	"#586e75",  /* 10: brgreen  */
-	"#657b83",  /* 11: bryellow */
-	"#839496",  /* 12: brblue   */
-	"#6c71c4",  /* 13: brmagenta*/
-	"#93a1a1",  /* 14: brcyan   */
-	"#fdf6e3",  /* 15: brwhite  */
+//		"#073642",  /*  0: black    */
+//		"#dc322f",  /*  1: red      */
+//		"#859900",  /*  2: green    */
+//		"#b58900",  /*  3: yellow   */
+//		"#268bd2",  /*  4: blue     */
+//		"#d33682",  /*  5: magenta  */
+//		"#2aa198",  /*  6: cyan     */
+//		"#eee8d5",  /*  7: white    */
+//		"#002b36",  /*  8: brblack  */
+//		"#cb4b16",  /*  9: brred    */
+//		"#586e75",  /* 10: brgreen  */
+//		"#657b83",  /* 11: bryellow */
+//		"#839496",  /* 12: brblue   */
+//		"#6c71c4",  /* 13: brmagenta*/
+//		"#93a1a1",  /* 14: brcyan   */
+//		"#fdf6e3",  /* 15: brwhite  */
+  "#2c393f", /* base01 */
+  "#ec5f67", /* base08 */
+  "#8bd649", /* base0B */
+  "#ffcc00", /* base0A */
+  "#89ddff", /* base0D */
+  "#ec5f67", /* base0F */
+  "#80cbc4", /* base0C */
+  "#d5dbe5", /* base06 */
+  "#263238", /* base00 */
+  "#ea9560", /* base09 */
+  "#37474f", /* base02 */
+  "#707880", /* base03 */
+  "#c9ccd3", /* base04 */
+  "#82aaff", /* base0E */
+  "#cdd3de", /* base05 */
+  "#ffffff", /* base07 */
 };
-
 
 /*
  * Default colors (colorname index)

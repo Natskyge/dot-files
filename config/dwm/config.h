@@ -5,13 +5,13 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 12;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Inconsolata:size=11" };
-static const char dmenufont[]       = "Inconsolata:size=11";
-static const char col_gray1[]       = "#073642";
-static const char col_gray2[]       = "#002b36";
-static const char col_gray3[]       = "#839496";
-static const char col_gray4[]       = "#93a1a1";
-static const char col_cyan[]        = "#002b36";
+static const char *fonts[]          = { "GohuFont:size=11" };
+static const char dmenufont[]       = "GohuFont:size=11";
+static const char col_gray1[]       = "#37474F";
+static const char col_gray2[]       = "#263238";
+static const char col_gray3[]       = "#CDD3DE";
+static const char col_gray4[]       = "#8BD649";
+static const char col_cyan[]        = "#263238";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray2,  col_gray1 },
