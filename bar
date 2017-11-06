@@ -1,0 +1,39 @@
+#!/usr/bin/bash
+
+# Define the clock
+Clock() {
+        DATETIME=$(date "+%a %b %d, %T")
+
+		echo -n "$DATETIME"
+}
+
+Volume() {
+		VOL=$( amixer get Master | awk '$0~/%/{print $4}' | tr -d '[]' )
+
+		echo -n "$VOL"
+}
+
+Battery() {
+		BAT=$( acpi -b | sed 's/.*[charging|unknown], \([0-9]*\)%.*/\1/gi' )
+
+		echo -n "$BAT"
+}
+
+Tabs() {
+    cur=`xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}'`
+    tot=`xprop -root _NET_NUMBER_OF_DESKTOPS | awk '{print $3}'`
+
+    for w in `seq 0 $((cur - 1))`; do line="${line} \u25CB "; done
+    line="${line} \u25CF "
+    for w in `seq $((cur + 2)) $tot`; do line="${line} \u25CB "; done
+    echo -e $line
+}
+
+# Print the clock
+while true; do
+     BAR_INPUT="%{c}$(Clock)
+%{r}BAT: $(Battery) | VOL:  $(Volume)
+%{l} $(Tabs)"
+     echo $BAR_INPUT
+     sleep 0.25
+done
